@@ -1,5 +1,6 @@
 from typing import Optional
 
+from fastapi.encoders import jsonable_encoder
 from sqlalchemy import extract, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -31,8 +32,11 @@ class CRUDCharityProject(CRUDBase):
             session: AsyncSession
     ):
         charity_projects = await session.execute(
-            select(CharityProject).where(
-                CharityProject.fully_invested
+            select([CharityProject.name,
+                    CharityProject.description,
+                    CharityProject.create_date,
+                    CharityProject.close_date]).where(
+                CharityProject.fully_invested == True
             ).order_by(
                 extract('year', CharityProject.close_date) -
                 extract('year', CharityProject.create_date),
@@ -50,7 +54,6 @@ class CRUDCharityProject(CRUDBase):
         )
 
         charity_projects = charity_projects.all()
-
         return charity_projects
 
 

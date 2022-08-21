@@ -58,23 +58,12 @@ async def spreadsheets_update_value(
         ['Название проекта', 'Время сбора', 'Описание']
     ]
 
-    for res in projects:
-        close_date = datetime.strptime(
-            res['CharityProject']['close_date'], "%Y-%m-%dT%H:%M:%S.%f"
-        )
-        create_date = datetime.strptime(
-            res['CharityProject']['create_date'], "%Y-%m-%dT%H:%M:%S.%f"
-        )
-        days = close_date.day - create_date.day
-        hours = close_date.hour - create_date.hour
-        minutes = close_date.minute - create_date.minute
-        seconds = close_date.second - create_date.second
-        microsecond = close_date.microsecond - create_date.microsecond
-        day = 'day' if days < 2 else 'days'
-        new_row = [str(res['CharityProject']['name']),
-                   f'{days} {day}, {hours}:{minutes}:{seconds}.{microsecond}',
-                   str(res['CharityProject']['description'])
-                   ]
+    for project in projects:
+
+        new_row = [project.name,
+                   str(project.close_date - project.create_date),
+                   project.description]
+
         table_values.append(new_row)
 
     update_body = {
