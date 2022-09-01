@@ -3,7 +3,7 @@
 В таблице находятся закрытые проекты, отсортированные по скорости сбора средств — от тех, 
 что закрылись быстрее всего, до тех, что долго собирали нужную сумму.
 
-https://github.com/Anzhela-Namistyuk/QRkot_spreadsheets/blob/main/image/google_table.png
+![Image text](https://github.com/Anzhela-Namistyuk/QRkot_spreadsheets/blob/main/image/google_table.png)
 
 ### Приложение для Благотворительного фонда QRKot
 Фонд собирает пожертвования на различные целевые проекты
