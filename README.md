@@ -16,7 +16,7 @@
 
 ### Технологии.
 ```
-Python 3,  SQLite3, SQLAlchemy, Alembic, pydantic, asyncio
+Python 3, SQLAlchemy, Alembic, pydantic, asyncio, google sheets
 ```
 
 #### Шаблон наполнения env-файла.
